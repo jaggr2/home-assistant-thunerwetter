@@ -51,6 +51,10 @@
       "temperature_min_today": { "name": "Min temperature today" },
       "temperature_trend_24h": { "name": "Temperature trend (24 h)" },
       "condition_text": { "name": "Condition" },
+      "water_temperature": { "name": "Water temperature (Lake Thun)" },
+      "water_temperature_avg_24h": { "name": "Water temperature 24h avg" },
+      "snow_line": { "name": "Snow line" },
+      "radioactivity": { "name": "Radioactivity" },
       "last_update": { "name": "Last update" }
     }
   }

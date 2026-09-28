@@ -46,6 +46,10 @@ def test_all_spec_entities_present():
         "temperature_min_today",
         "temperature_trend_24h",
         "condition_text",
+        "water_temperature",
+        "water_temperature_avg_24h",
+        "snow_line",
+        "radioactivity",
         "last_update",
     }
 

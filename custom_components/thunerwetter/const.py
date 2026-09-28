@@ -17,6 +17,18 @@ DEFAULT_POLL_INTERVAL = 600
 MIN_POLL_INTERVAL = 60
 MAX_POLL_INTERVAL = 600
 
+# Auxiliary pages/feeds derived from the clientraw base URL. The site serves
+# them as iso-8859-1; the parser anchors on ASCII-only markup so decoding with
+# latin-1 is safe. WsWin publishes no JSON for these — HTML scraping is the
+# only stable interface (verified 2026-09-28).
+PATH_AKTUELL = "aktuell.html"
+PATH_AKTUELL_SEE = "aktuell_see.html"
+
+# Public Thingspeak channel embedded in radioaktivitaet.html. Minute-wise
+# feeds with spiky values (individual rain showers) — the parser averages
+# them. field1 = pulses/min, field2 = dose rate nSv/h.
+THINGSPEAK_URL = "https://api.thingspeak.com/channels/412067/feeds.json?results=30"
+
 # Sanity gate: clientraw field 0 must be exactly this, otherwise the feed
 # format changed and the whole update is aborted.
 MAGIC = "12345"
@@ -54,3 +66,13 @@ HUMIDITY_MIN = 0.0
 HUMIDITY_MAX = 100.0
 PRESSURE_MIN = 800.0
 PRESSURE_MAX = 1200.0
+
+# Lake water (Thunersee, -30 cm): range covers ice water to hot summer days.
+WATER_TEMP_MIN = 0.0
+WATER_TEMP_MAX = 40.0
+# Snow line altitude in metres (can dip below zero during winter storms).
+SNOW_LINE_MIN = -1000.0
+SNOW_LINE_MAX = 6000.0
+# Radiation dose rate nSv/h: normal 70-220, rain showers spike higher; the
+# parser averages 30 minute-wise feeds first, so this only gates the mean.
+RADIOACTIVITY_MAX = 10000.0

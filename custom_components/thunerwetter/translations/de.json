@@ -51,6 +51,10 @@
       "temperature_min_today": { "name": "Min. Temperatur heute" },
       "temperature_trend_24h": { "name": "Temperaturtrend (24 h)" },
       "condition_text": { "name": "Wetterlage" },
+      "water_temperature": { "name": "Wassertemperatur (Thunersee)" },
+      "water_temperature_avg_24h": { "name": "Wassertemperatur Ø 24 h" },
+      "snow_line": { "name": "Schneefallgrenze" },
+      "radioactivity": { "name": "Radioaktivität" },
       "last_update": { "name": "Letzte Aktualisierung" }
     }
   }

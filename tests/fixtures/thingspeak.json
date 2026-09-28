@@ -1,0 +1,14 @@
+{
+  "channel": {
+    "id": 412067,
+    "name": "Radioaktivität in Thun, Schweiz",
+    "field1": "Radioaktivität [Puls/Min.]",
+    "field2": "Dosis [nSv/h]"
+  },
+  "feeds": [
+    {"created_at": "2026-09-28T18:03:07Z", "entry_id": 3906523, "field1": "12", "field2": "70"},
+    {"created_at": "2026-09-28T18:04:07Z", "entry_id": 3906524, "field1": "2", "field2": "1273"},
+    {"created_at": "2026-09-28T18:05:07Z", "entry_id": 3906525, "field1": "11", "field2": "90"},
+    {"created_at": "2026-09-28T18:06:07Z", "entry_id": 3906526, "field1": "--", "field2": null}
+  ]
+}

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Literal
+from typing import Any, Literal
 
 from homeassistant.components.sensor import (
     SensorDeviceClass,
@@ -13,6 +13,7 @@ from homeassistant.const import (
     DEGREE,
     PERCENTAGE,
     EntityCategory,
+    UnitOfLength,
     UnitOfPrecipitationDepth,
     UnitOfPressure,
     UnitOfSpeed,
@@ -152,6 +153,34 @@ SENSOR_DEFS: tuple[SensorDef, ...] = (
     ),
     SensorDef("condition_text", "condition_text"),
     SensorDef(
+        "water_temperature",
+        "water_temperature",
+        SensorDeviceClass.TEMPERATURE,
+        UnitOfTemperature.CELSIUS,
+        SensorStateClass.MEASUREMENT,
+    ),
+    SensorDef(
+        "water_temperature_avg_24h",
+        "water_temperature_avg_24h",
+        SensorDeviceClass.TEMPERATURE,
+        UnitOfTemperature.CELSIUS,
+        SensorStateClass.MEASUREMENT,
+    ),
+    SensorDef(
+        "snow_line",
+        "snow_line",
+        SensorDeviceClass.DISTANCE,
+        UnitOfLength.METERS,
+        SensorStateClass.MEASUREMENT,
+    ),
+    SensorDef(
+        "radioactivity",
+        "radioactivity",
+        None,
+        "nSv/h",
+        SensorStateClass.MEASUREMENT,
+    ),
+    SensorDef(
         "last_update",
         "last_update",
         SensorDeviceClass.TIMESTAMP,
@@ -214,6 +243,13 @@ class ThunerwetterSensor(
     @property
     def native_value(self):
         return self.coordinator.data.get(self._desc.key)
+
+    @property
+    def extra_state_attributes(self) -> dict[str, Any] | None:
+        if self._desc.key == "radioactivity":
+            cpm = self.coordinator.data.get("radioactivity_cpm")
+            return {"counts_per_minute": cpm} if cpm is not None else None
+        return None
 
     @property
     def available(self) -> bool:

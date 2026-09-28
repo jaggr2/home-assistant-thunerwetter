@@ -57,6 +57,10 @@ One device (**thunerwetter**, manufacturer *WsWin/thunerwetter.ch*, model
 | Max/min temperature today | °C | reset daily by the station |
 | Temperature trend (24 h) | °C | signed |
 | Condition | text | station's own text, icon derived from it |
+| Water temperature (Lake Thun) | °C | measured at −30 cm, from `aktuell_see.html` |
+| Water temperature 24h avg | °C | second value of `aktuell_see.html` |
+| Snow line | m | scraped from `aktuell.html` |
+| Radioactivity | nSv/h | 30-minute mean of the station's public Thingspeak feed (field 2, dose rate); `counts_per_minute` attribute = mean of field 1 |
 | Last update | timestamp | station's own timestamp (Europe/Zurich), diagnostic |
 
 Fields that are missing (`--`), unparsable or implausible make only the
@@ -77,7 +81,16 @@ from WD documentation, and re-verify against `aktuell.html` (same-minute
 cross-check) before extending the mapping.
 
 Plausibility gates: temperature −60…+60 °C, humidity 0–100 %, pressure
-800–1200 hPa, wind/rain ≥ 0, dewpoint ≤ temperature.
+800–1200 hPa, wind/rain ≥ 0, dewpoint ≤ temperature, water temp 0–40 °C,
+snow line −1000…+6000 m, radiation mean ≤ 10000 nSv/h.
+
+The auxiliary values (water temperature, snow line) come from WsWin's
+iso-8859-1 HTML pages (`aktuell_see.html`, `aktuell.html`) fetched next to
+the clientraw feed; radioactivity comes from the station's public
+Thingspeak channel (minute-wise feeds — individual rain showers spike the
+dose rate, hence the 30-sample mean). A failure of any auxiliary fetch
+only makes the affected sensors unavailable; the clientraw sensors keep
+updating.
 
 ## Development
 
