@@ -1,0 +1,57 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Thunerwetter",
+        "description": "Verbindung zum clientraw.txt-Feed der Wetterstation thunerwetter.ch in Thun, CH.",
+        "data": {
+          "url": "Feed-URL (clientraw.txt)",
+          "poll_interval": "Abfrageintervall (Sekunden)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zum Feed fehlgeschlagen. URL prüfen und erneut versuchen.",
+      "invalid_feed": "Die URL liefert keinen gültigen clientraw.txt-Feed."
+    },
+    "abort": {
+      "already_configured": "Dieser Feed ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Thunerwetter-Optionen",
+        "data": {
+          "url": "Feed-URL (clientraw.txt)",
+          "poll_interval": "Abfrageintervall (Sekunden)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zum Feed fehlgeschlagen. URL prüfen und erneut versuchen.",
+      "invalid_feed": "Die URL liefert keinen gültigen clientraw.txt-Feed."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature": { "name": "Temperatur" },
+      "humidity": { "name": "Luftfeuchtigkeit" },
+      "pressure": { "name": "Luftdruck" },
+      "wind_speed": { "name": "Windgeschwindigkeit" },
+      "wind_bearing": { "name": "Windrichtung" },
+      "rain_rate": { "name": "Regenrate" },
+      "rain_today": { "name": "Regen heute" },
+      "rain_month": { "name": "Regen diesen Monat" },
+      "rain_year": { "name": "Regen dieses Jahr" },
+      "temperature_indoor": { "name": "Innentemperatur" },
+      "humidity_indoor": { "name": "Innenluftfeuchtigkeit" },
+      "dewpoint": { "name": "Taupunkt" },
+      "temperature_max_today": { "name": "Max. Temperatur heute" },
+      "temperature_min_today": { "name": "Min. Temperatur heute" },
+      "temperature_trend_24h": { "name": "Temperaturtrend (24 h)" },
+      "condition_text": { "name": "Wetterlage" },
+      "last_update": { "name": "Letzte Aktualisierung" }
+    }
+  }
+}

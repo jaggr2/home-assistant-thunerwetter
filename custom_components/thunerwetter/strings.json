@@ -1,0 +1,57 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Thunerwetter",
+        "description": "Connect to the clientraw.txt feed of the thunerwetter.ch weather station in Thun, CH.",
+        "data": {
+          "url": "Feed URL (clientraw.txt)",
+          "poll_interval": "Poll interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the feed. Check the URL and try again.",
+      "invalid_feed": "The URL did not return a valid clientraw.txt feed."
+    },
+    "abort": {
+      "already_configured": "This feed is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Thunerwetter options",
+        "data": {
+          "url": "Feed URL (clientraw.txt)",
+          "poll_interval": "Poll interval (seconds)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect to the feed. Check the URL and try again.",
+      "invalid_feed": "The URL did not return a valid clientraw.txt feed."
+    }
+  },
+  "entity": {
+    "sensor": {
+      "temperature": { "name": "Temperature" },
+      "humidity": { "name": "Humidity" },
+      "pressure": { "name": "Pressure" },
+      "wind_speed": { "name": "Wind speed" },
+      "wind_bearing": { "name": "Wind bearing" },
+      "rain_rate": { "name": "Rain rate" },
+      "rain_today": { "name": "Rain today" },
+      "rain_month": { "name": "Rain this month" },
+      "rain_year": { "name": "Rain this year" },
+      "temperature_indoor": { "name": "Indoor temperature" },
+      "humidity_indoor": { "name": "Indoor humidity" },
+      "dewpoint": { "name": "Dewpoint" },
+      "temperature_max_today": { "name": "Max temperature today" },
+      "temperature_min_today": { "name": "Min temperature today" },
+      "temperature_trend_24h": { "name": "Temperature trend (24 h)" },
+      "condition_text": { "name": "Condition" },
+      "last_update": { "name": "Last update" }
+    }
+  }
+}
