@@ -32,9 +32,8 @@ Thunerwetter**. The flow asks for:
 
 - **Feed URL** — defaults to
   `https://www.thunerwetter.ch/clientraw.txt`
-- **Poll interval** — 60–600 s, default **120 s** (the web feed refreshes
-  about every 2 minutes; the station pushes to WU every 2.5 s, but the
-  `clientraw.txt` file itself updates slower).
+- **Poll interval** — 60–600 s, default **600 s** (10 min; the web feed
+  itself only refreshes about every 2 minutes, so 10 min is plenty).
 
 The feed is fetched and parsed once during setup — a bad URL or an
 invalid feed is rejected with an error. Both values can be changed later

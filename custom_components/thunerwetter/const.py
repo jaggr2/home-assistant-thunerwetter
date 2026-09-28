@@ -13,7 +13,7 @@ CONF_URL = "url"
 CONF_POLL_INTERVAL = "poll_interval"
 
 DEFAULT_URL = "https://www.thunerwetter.ch/clientraw.txt"
-DEFAULT_POLL_INTERVAL = 120
+DEFAULT_POLL_INTERVAL = 600
 MIN_POLL_INTERVAL = 60
 MAX_POLL_INTERVAL = 600
 

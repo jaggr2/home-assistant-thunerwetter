@@ -39,7 +39,9 @@ pytest.ini, requirements-dev.txt, .gitignore, .gitattributes (LF)
   **space-separated fields, ~169 fields**, `--` used as "no value" placeholder.
 - Update cycle ≈ **2 minutes** (station also pushes to Weather Underground
   every 2.5 s as `IBERNTHU4`/`IBERNTHU5`, but the web feed refreshes slower).
-- Default poll interval: **120 s**, minimum 60 s, maximum 600 s.
+- Default poll interval: **600 s** (10 min, raised 2026-09-28 from 120 s —
+  the feed only refreshes every ~2 min, so 10 min is plenty), minimum 60 s,
+  maximum 600 s.
 - The station runs **WsWin** (not Weather Display) — its clientraw layout
   **diverges from the classic WD spec**. Do NOT copy field indices from WD
   documentation. Use the empirically verified mapping below only.
