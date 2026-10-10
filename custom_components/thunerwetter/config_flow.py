@@ -71,7 +71,7 @@ async def async_validate_feed(hass: HomeAssistant, url: str) -> str | None:
             response = await session.get(url)
             response.raise_for_status()
             raw = await response.text()
-    except (TimeoutError, asyncio.TimeoutError, aiohttp.ClientError, OSError):
+    except (TimeoutError, aiohttp.ClientError, OSError):
         return "cannot_connect"
     if parse_clientraw(raw) is None:
         return "invalid_feed"

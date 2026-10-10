@@ -63,7 +63,7 @@ class ThunerwetterDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         async def safe(coro, parser):
             try:
                 return parser(await coro)
-            except (TimeoutError, asyncio.TimeoutError, aiohttp.ClientError) as err:
+            except (TimeoutError, aiohttp.ClientError) as err:
                 _LOGGER.warning("Auxiliary fetch failed, skipping its values: %s", err)
                 return {}
 
@@ -83,7 +83,7 @@ class ThunerwetterDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
                 response = await self._session.get(self._url)
                 response.raise_for_status()
                 raw = await response.text()
-        except (TimeoutError, asyncio.TimeoutError) as err:
+        except TimeoutError as err:
             raise UpdateFailed(f"Timeout fetching {self._url}: {err}") from err
         except aiohttp.ClientError as err:
             raise UpdateFailed(f"Error fetching {self._url}: {err}") from err
